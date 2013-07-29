@@ -129,7 +129,7 @@ def updateWMStimeExtent(layer):
 
     try:
         strTimeExtent = capabilitiesTree.xpath(
-            "//Layer[Name='%s']/Extent[@name='time']/text()" % layer.name
+			"//Layer[Name='%s']/ancestor-or-self::Layer/Extent[@name='time']/text()" % layer.name
         )[0]
         # Form: '2000-02-18,2000-03-06,2000-03-22,2000-04- ....'
         strTimeExtent = strTimeExtent.replace('-', '')  # purge '-'
